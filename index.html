@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Homepage</title>
+    <link rel="stylesheet" href="styles/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="name-container">
+            <h1 id="main-name">Yashas Kotre</h1> 
+        </div>
+        <nav class="top-nav">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#cv">CV</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content-area">
+        <section id="about" class="content-section full-width about-section-layout">
+            <img src="images/profile.jpeg" id="profile-pic">
+
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>
+                    I'm a first year undergrad student in CSE with strong interest in building things
+                    from scratch; I'm currently learning graphics & network programming and pursuing my interest
+                    in math; particulary combinatorics/probability and calculus. Low level software fascinates
+                    me and I would love to explore projects in that domain.
+                </p>
+            </div>
+        </section>
+                <div class="section-pair-wrapper">
+                    <section id="skills" class="content-section half-width">
+                        <h2>Technical Skills</h2>
+                        <br>
+                        <ul class="skills-list">
+                            <li>
+                                <strong>Intermediate:</strong>
+                                <span>C, C++, Python, MySQL, NoSQL</span>
+                            </li>
+                            <li>
+                                <strong>Beginner:</strong>
+                                <span>OpenGL</span> 
+                            </li>
+                        </ul>
+                    </section>
+        
+                    <section id="education" class="content-section half-width">
+                        <h2>Education</h2>
+        
+                        <div class="education-item">
+                            <h3>International Institute of Information Technology - Hyderabad B.Tech CSE</h3>
+                            <p><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2024 - 2028 (Expected)</em></p>
+                            <ul>
+                                <li>Achievements:
+                                    <ul>
+                                        <li>JEE Mains Rank: 1337</li>
+                                        <li>JEE Advanced Rank: 3522</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+    
+                    </section>
+        
+                </div> 
+        
+        <section id="cv" class="content-section full-width">
+            <h2>Curriculum Vitae</h2>
+            <br><br>
+            <a href="docs/cv.pdf" download="cv.pdf" class="button">Download CV (PDF)</a>
+        </section>
+
+    </main>
+
+    
+
+</section>
+
+    <!-- NEW SECTION: Text Analyzer -->
+    <section id="text-analyzer" class="content-section full-width">
+        <h2>Text Analyzer</h2>
+        <p>Enter a large block of text:</p>
+
+        <!-- Input Text Area -->
+        <textarea id="textInput" placeholder="Paste your text here..." rows="15" aria-label="Text input for analysis"></textarea>
+
+        <!-- Analyze Button -->
+        <button id="analyzeButton" class="button" style="margin-top: 20px; margin-bottom: 30px;">Analyze Text</button>
+
+        <!-- Output Area -->
+        <div id="analysisOutput">
+            <!-- Results will be displayed here by JavaScript -->
+        </div>
+    </section>
+    <!-- End of Text Analyzer Section -->
+
+    </main> <!-- This should already exist -->
+
+    <footer> <!-- This should already exist -->
+    <p>© 2025. All rights reserved.</p>
+    </footer>
+    
+    <!-- Existing Analytics Script -->
+    <script src="scripts/main.js" defer></script>
+    <!-- ADD NEW SCRIPT FOR TEXT ANALYZER -->
+    <script src="scripts/analyzer.js" defer></script>
+</body>
+</html>
