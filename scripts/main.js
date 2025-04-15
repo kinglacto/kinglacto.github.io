@@ -29,7 +29,7 @@ function logEvent(type, targetElement) {
                  objectDescription += ` (text: ${targetElement.textContent.trim()})`;
              }
         } else if (['P', 'H1', 'H2', 'H3', 'LI', 'SPAN'].includes(targetElement.tagName.toUpperCase())) {
-            const textSnippet = targetElement.textContent.trim().substring(0, 30); // First 30 chars
+            const textSnippet = targetElement.textContent.trim().substring(0, 30); 
             if (textSnippet) {
                  objectDescription += ` (text: ${textSnippet}...)`;
             }
@@ -39,10 +39,7 @@ function logEvent(type, targetElement) {
     console.log(`${timestamp}, ${type}, ${objectDescription}`);
 }
 
-
 logEvent('view', null); 
 document.addEventListener('click', function(event) {
     logEvent('click', event.target);
 }, true); 
-
-console.log("Simple Analytics Logger Initialized.");

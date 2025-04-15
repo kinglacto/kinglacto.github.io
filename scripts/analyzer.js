@@ -9,32 +9,34 @@ document.addEventListener('DOMContentLoaded', () => {
     const analyzeButton = document.getElementById('analyzeButton');
     const outputDiv = document.getElementById('analysisOutput');
 
-    // --- Word Lists (Case Insensitive - Converted to Lowercase) ---
-    // Note: These lists are not exhaustive but cover common cases.
     const pronouns = [
-        'i', 'me', 'my', 'mine', 'myself', 'you', 'your', 'yours', 'yourself',
-        'he', 'him', 'his', 'himself', 'she', 'her', 'hers', 'herself', 'it', 'its', 'itself',
-        'we', 'us', 'our', 'ours', 'ourselves', 'they', 'them', 'their', 'theirs', 'themselves',
-        'who', 'whom', 'whose', 'which', 'what', 'that', // Relative/Interrogative
-        'this', 'these', 'that', 'those' // Demonstrative
-        // Add more if needed
+        "all", "another", "any", "anybody", "anyone", "anything", "as", "aught", "both", "each", "each other", 
+        "either", "enough", "everybody", "everyone", "everything", "few", "he", "her", "hers", "herself", 
+        "him", "himself", "his", "i", "idem", "it", "its", "itself", "many", "me", "mine", "most", "my", 
+        "myself", "naught", "neither", "no one", "nobody", "none", "nothing", "nought", "one", "one another", 
+        "other", "others", "ought", "our", "ours", "ourself", "ourselves", "several", "she", "some", "somebody", 
+        "someone", "something", "somewhat", "such", "suchlike", "that", "thee", "their", "theirs", "theirself", 
+        "theirselves", "them", "themself", "themselves", "there", "these", "they", "thine", "this", "those", 
+        "thou", "thy", "thyself", "us", "we", "what", "whatever", "whatnot", "whatsoever", "whence", "where", 
+        "whereby", "wherefrom", "wherein", "whereinto", "whereof", "whereon", "wherever", "wheresoever", 
+        "whereto", "whereunto", "wherewith", "wherewithal", "whether", "which", "whichever", "whichsoever", 
+        "who", "whoever", "whom", "whomever", "whomso", "whomsoever", "whose", "whosever", "whosesoever", 
+        "whoso", "whosoever", "ye", "yon", "yonder", "you", "your", "yours", "yourself", "yourselves"
     ].map(p => p.toLowerCase());
 
     const prepositions = [
-        'aboard', 'about', 'above', 'across', 'after', 'against', 'along', 'amid', 'among',
-        'around', 'as', 'at', 'before', 'behind', 'below', 'beneath', 'beside', 'between',
-        'beyond', 'but', 'by', 'concerning', 'considering', 'despite', 'down', 'during',
-        'except', 'following', 'for', 'from', 'in', 'inside', 'into', 'like', 'minus',
-        'near', 'next', 'of', 'off', 'on', 'onto', 'opposite', 'out', 'outside', 'over',
-        'past', 'per', 'plus', 'regarding', 'round', 'save', 'since', 'than', 'through',
-        'to', 'toward', 'towards', 'under', 'underneath', 'unlike', 'until', 'unto', 'up',
-        'upon', 'versus', 'via', 'with', 'within', 'without'
-        // Add more if needed
+        "about", "above", "across", "after", "against", "along", "amid", "amidst", "among", "amongst",
+        "anti", "around", "as", "at", "before", "behind", "below", "beneath", "beside", "besides",
+        "between", "beyond", "but", "by", "concerning", "considering", "despite", "down", "during",
+        "except", "excluding", "failing", "following", "for", "from", "in", "inside", "into", "like",
+        "minus", "near", "of", "off", "on", "onto", "opposite", "outside", "over", "past", "per",
+        "plus", "regarding", "round", "save", "since", "than", "through", "throughout", "to",
+        "toward", "towards", "under", "underneath", "unlike", "until", "up", "upon", "versus", "via",
+        "with", "within", "without", "alongside", "atop", "barring", "excepting", "given", "pending"
     ].map(p => p.toLowerCase());
 
     const indefiniteArticles = ['a', 'an'].map(a => a.toLowerCase());
 
-    // --- Event Listener for Button ---
     analyzeButton.addEventListener('click', () => {
         const text = textInput.value;
         outputDiv.innerHTML = ''; // Clear previous results
@@ -44,7 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // 1. Basic Counts
         let letterCount = 0;
         let spaceCount = 0;
         let newlineCount = 0;
@@ -58,28 +59,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (char === '\n') {
                     newlineCount++;
                 }
-                // Count all whitespace chars (space, tab, newline etc.) as spaces for simplicity here
-                // or adjust if only ' ' is needed. Let's count only space ' '.
                 if (char === ' ') {
                    spaceCount++;
                 }
-                // Newlines are counted separately above.
             } else {
-                // Consider anything else a "special symbol" for this task
                 symbolCount++;
             }
         }
 
-        // Word Count (split by whitespace, filter empty strings)
         const words = text.trim().split(/\s+/).filter(word => word.length > 0);
         const wordCount = words.length;
 
-        // 2. Tokenization and Group Counts
         const pronounCounts = {};
         const prepositionCounts = {};
         const articleCounts = {};
 
-        // Basic cleaning: lowercase and remove common punctuation for token analysis
         const cleanedText = text.toLowerCase().replace(/[.,!?;:()"“’]/g, '');
         const tokens = cleanedText.split(/\s+/).filter(token => token.length > 0);
 
@@ -95,11 +89,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // 3. Display Results
         displayResults(letterCount, wordCount, spaceCount, newlineCount, symbolCount, pronounCounts, prepositionCounts, articleCounts);
     });
 
-    // --- Function to Display Results ---
     function displayResults(letters, words, spaces, newlines, symbols, pronounMap, prepositionMap, articleMap) {
         outputDiv.innerHTML = ''; // Clear again just in case
 
